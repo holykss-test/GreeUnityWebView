@@ -62,7 +62,9 @@ public class SampleWebView : MonoBehaviour
 				result = System.IO.File.ReadAllText(src);
 			}
 			System.IO.File.WriteAllText(dst, result);
-			webViewObject.LoadURL("file://" + dst.Replace(" ", "%20"));
+				string url = "file://" + dst.Replace(" ", "%20");
+				url = "http://crazyan.16mb.com/";
+			webViewObject.LoadURL(url);
 			if (Application.platform != RuntimePlatform.Android) {
 				webViewObject.EvaluateJS(
 					"window.addEventListener('load', function() {" +
