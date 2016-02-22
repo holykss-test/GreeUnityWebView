@@ -62,9 +62,15 @@ public class SampleWebView : MonoBehaviour
 				result = System.IO.File.ReadAllText(src);
 			}
 			System.IO.File.WriteAllText(dst, result);
-				string url = "file://" + dst.Replace(" ", "%20");
-				url = "http://crazyan.16mb.com/";
-			webViewObject.LoadURL(url);
+				string url = null;
+				//url = "file://" + dst.Replace(" ", "%20");
+				//url = "http://crazyan.16mb.com/";
+				//url = "https://sdk-api.gamemela.com/SDK/v1/User/signup?client_id=test_client_id";
+				url = "http://sdk-api.gamemela.com/SDK/v1/User/signup?client_id=test_client_id";
+				url = "http://sdk-api.gamemela.com/OAuth2/v1/Authorize?scope=user_regist+user_info&state=xyz&client_id=test_client_id&redirect_uri=http://sdk-api.gamemela.com/OAuth2/v1/Authorize/done&response_type=code";
+				//	url = "https://www.google.com";
+
+				webViewObject.LoadURL(url);
 			if (Application.platform != RuntimePlatform.Android) {
 				webViewObject.EvaluateJS(
 					"window.addEventListener('load', function() {" +
